@@ -10,13 +10,16 @@ You can either pull from `chrisekelley/docker-testbed`:
 docker pull chrisekelley/docker-testbed
 ```
 
-```
-docker run -i -t chrisekelley/docker-testbed /bin/bash
-```
-
-or add it to your Dockerfile:
+If there is no entrypoint, or the entrypoint does not have a never-ending process, run it like this:
 
 ```
-FROM chrisekelley/docker-testbed
+docker run -it --name testbed --entrypoint=/bin/bash chrisekelley/docker-testbed
 ```
+
+otherwise, do this:
+
+```
+docker run -it -name testbed -chrisekelley/docker-testbed /bin/bash
+```
+
 
